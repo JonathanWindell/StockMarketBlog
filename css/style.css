@@ -1,0 +1,20 @@
+/* style.css */
+
+body {
+  width: 100%;
+  background-color: lightgray;
+}
+
+.header-container {
+  position: relative;
+  left: 40%;
+}
+
+.header {
+
+}
+
+.latest-post .post h1 {
+  position: relative;
+  left: 40%;
+}
