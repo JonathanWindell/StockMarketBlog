@@ -22,7 +22,7 @@ body {
 .menu {
   position: fixed;
   top: 10px;
-  left: 5px;
+  left: 10px;
   display: flex;
   gap: 5px;
   background: lightgray;
