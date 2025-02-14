@@ -23,6 +23,10 @@
     "webpack-merge": "^5.10.0"
   },
   "dependencies": {
-    "svelte": "^5.19.10"
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "svelte": "^5.19.10",
+    "svelte-motion": "^0.12.2",
+    "tailwind-merge": "^3.0.1"
   }
 }
