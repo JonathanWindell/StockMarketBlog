@@ -2,9 +2,23 @@
 
 body {
   width: 100%;
-  background-color: lightgray;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.3s, color 0.3s;
 }
 
+/*Light & Dark mode*/
+:root {
+  --bg-color: white;
+  --text-color: black;
+}
+
+.dark-mode {
+  --bg-color: #121212;
+  --text-color: white;
+}
+
+/*Header*/
 .header-container {
   position: relative;
   left: 40%;
@@ -19,13 +33,15 @@ body {
   left: 40%;
 }
 
+/*Menu*/
 .menu {
   position: fixed;
   top: 10px;
   left: 10px;
   display: flex;
   gap: 5px;
-  background: lightgray;
+  background: whitesmoke;
+  border: 1px solid black;
   padding: 5px;
   border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
