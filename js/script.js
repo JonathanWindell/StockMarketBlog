@@ -1,30 +1,27 @@
 //Light & Dark mode
-const lightModeBtn = document.getElementById("light-mode-btn");
-const darkModeBtn = document.getElementById("dark-mode-btn");
+const themeToggleBtn = document.getElementById("theme-toggle");
+const themeIcon = document.getElementById("theme-icon");
 const body = document.body;
 
-// Kolla om användaren har sparat ett tema i localStorage och uppdatera UI
+// Kontrollera om användaren har ett sparat tema
 if (localStorage.getItem("theme") === "dark") {
   body.classList.add("dark-mode");
-  lightModeBtn.style.display = "none";
-  darkModeBtn.style.display = "block";
+  themeIcon.src = "img/ToggleIconOn.png"; // Sätter mörkt tema-ikon
 }
 
-// Funktion för att byta tema
+// Funktion för att växla tema och ikon
 function toggleTheme() {
   body.classList.toggle("dark-mode");
 
   if (body.classList.contains("dark-mode")) {
     localStorage.setItem("theme", "dark");
-    lightModeBtn.style.display = "none";
-    darkModeBtn.style.display = "block";
+    themeIcon.src = "img/ToggleIconOn.png"; // Mörkt tema-ikon
   } else {
     localStorage.setItem("theme", "light");
-    lightModeBtn.style.display = "block";
-    darkModeBtn.style.display = "none";
+    themeIcon.src = "img/ToggleIconOff.png"; // Ljust tema-ikon
   }
 }
 
 // Lägg till event listeners på båda knapparna
-lightModeBtn.addEventListener("click", toggleTheme);
-darkModeBtn.addEventListener("click", toggleTheme);
+themeToggleBtn.addEventListener("click", toggleTheme);
+
