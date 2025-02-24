@@ -56,21 +56,22 @@ button {
   text-align: center;
   width: 100%;
   background-color: lightblue;
+  height: 129px;
 }
 
-.header h1 {
+.header h1{
   font-family: 'Montserrat', sans-serif;
-  font-weight: 700;
+  font-weight: 300;
   margin: 0;
-  padding-top: 50px;
+  padding-top: 60px;
 }
 
 .line {
   position: relative;
   border: none;
-  height: 1px;
+  height: 2px;
   background-color: black;
-  margin: 20px 0;
+  margin: 40px 0;
 }
 
 .latest-post .post h1 {
@@ -80,84 +81,80 @@ button {
 }
 
 /*Menu*/
-.menu {
+.navbar {
+  padding: 22px 0px;
   position: fixed;
-  top: 10px;
-  left: 10px;
-  display: flex;
-  gap: 5px;
-  background: whitesmoke;
-  border: 1px solid black;
-  padding: 5px;
-  border-radius: 10px;
-  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
-  max-width: 300px;
-  justify-content: space-between;
+  top: 0;
+  left: 0;
+  width: 10%;
+  z-index: 1000;
+  transition: all 0.3s ease;
+  background: lightblue;
 }
 
-.menu-item {
+.nav-links {
+  list-style: none;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 40px;
-  height: 45px;
-  border: 2px solid transparent;
-  border-radius: 6px;
-  transition: all 0.3s ease-in-out;
+  flex-direction: column; /* Ändrar till vertikal stapling */
+  padding-left: 5px;
+  margin: 0;
+  justify-content: flex-start;
+}
+
+.nav-links li {
+  display: block; /* Se till att varje lista är en blocknivå */
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  transition: transform 0.3s ease;
+  margin-bottom: 5px; /* Lite mellanrum mellan varje länk */
+}
+
+.nav-links a {
   text-decoration: none;
-  flex-grow: 1;
-}
-
-.menu-item i {
+  color: black;
   font-size: 18px;
-  transition: transform 0.3s ease-in-out;
+  padding: 5px 10px;
+  display: inline-block;
+  transition: all 0.3s ease;
+  border-radius: 5px;
 }
 
-.menu-item:hover {
-  border-color: black;
-  width: 50px;
-  height: 40px;
-}
-
-.menu-item:hover i {
-  transform: scale(1.3);
-  color: lightgray;
-}
-
-/* Media Queries*/
-@media screen and (max-width: 1200px) {
-  .menu {
-    transform: scale(0.9);
-    transform-origin: top left;
-  }
-}
-
-@media screen and (max-width: 992px) {
-  .menu {
-    transform: scale(0.8);
-    transform-origin: top left;
-  }
+.nav-links a:hover {
+  background-color: #555;
+  border-radius: 5px;
+  transform: scale(1.05);
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
 }
 
 @media screen and (max-width: 768px) {
-  .menu {
-    transform: scale(0.7);
-    transform-origin: top left;
+  .navbar {
+    padding: 10px 10px;
+  }
+
+  .nav-links {
+    gap: 5px; /* Justera avståndet mellan länkarna */
+  }
+
+  .nav-links a {
+    font-size: 16px;
+    padding: 4px 8px;
   }
 }
 
-@media screen and (max-width: 576px) {
-  .menu {
-    transform: scale(0.6);
-    transform-origin: top left;
+@media screen and (max-width: 480px) {
+  .navbar {
+    padding: 10px;
   }
-}
 
-@media screen and (max-width: 400px) {
-  .menu {
-    transform: scale(0.5);
-    transform-origin: top left;
+  .nav-links {
+    gap: 3px;
   }
+
+  .nav-links a {
+    font-size: 14px;
+    padding: 3px 6px;
+  }
+
 }
 
 /*TextContainer*/
@@ -243,6 +240,7 @@ body, button, input {
   flex: 0 1 700px;
   margin: auto;
   padding: 10px;
+  transform: scale(0.9);
 }
 
 .screen {
@@ -425,7 +423,7 @@ body, button, input {
   margin: 0 5px;
 }
 
-@media screen and (max-width: 520px) {
+@media screen and (max-width: 470px) {
   .screen-body {
     flex-direction: column;
   }
@@ -447,7 +445,7 @@ body, button, input {
   }
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 450px) {
   .screen-body {
     padding: 40px;
   }
