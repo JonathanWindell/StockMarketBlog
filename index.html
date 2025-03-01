@@ -8,95 +8,74 @@
 </head>
 <body>
 <main>
-  <!--Header -->
-  <nav class="navbar">
-    <ul class="nav-links">
-      <li><a href="index.html">Hem</a></li>
-      <li><a href="OldArticles.html">Artiklar</a></li>
-      <li><a href="contact-form">Kontakt</a></li>
-      <li><a href="https://github.com/JonathanWindell">Github</a></li>
-      <li><a href="https://www.linkedin.com/in/jonathan-windell-418a55232/">Linkedin</a></li>
-    </ul>
-  </nav>
 
+  <!--Header and Time-->
   <header class="header-container">
     <div class="header">
-      <h1>Investeringskompassen</h1>
+      <section class="ShowingTime">
+        <div class="showingTime"></div>
+        <p id="dateTime"></p>
+      </section>
+      <div class="header-content">
+        <div class="bull-logo">
+          <img src="css/BullWebsite.png" height="55" width="55" alt="Bull Website"/>
+        </div>
+        <h1>Investeringskompassen</h1>
+      </div>
       <hr class="line">
     </div>
   </header>
 
+  <nav class="navbar">
+    <ul class="nav-links">
+      <li><a href="index.html">Hem</a></li>
+      <li><a href="OldArticles.html">Artiklar</a></li>
+      <li><a href="#FooterContainer">Kontakt</a></li>
+    </ul>
+  </nav>
+
   <!--Textarea-->
+  <div class="content-wrapper">
+    <section>
+      <div class="TextContainer">
+        <div class="TextArea">
+          <h2>Latest Post</h2>
+          <div id="latestPostContent">
+            <!-- Content -->
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
   <section>
-    <div class="TextContainer">
-      <div class="TextArea">
-        <h2>Latest Post</h2>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus imperdiet, nulla et dictum interdum, nisi lorem egestas vitae scel erisque enim ligula venenatis dolor. Maecenas nisl est, ultrices nec congue eget, auctor vitae massa. Fusce luctus vestibulum augue ut aliquet. Nunc sagittis dictum nisi, sed ullamcorper ipsum dignissim ac. In at libero sed nunc venenatis imperdiet sed ornare turpis. Donec vitae dui eget tellus gravida venenatis. Integer fringilla congue eros non fermentum. Sed dapibus pulvinar nibh tempor porta.
-        </p>
+    <div class="FooterContainer">
+      <div class="Footer"></div>
+      <div class="ContentWrapper">
+        <div class="CopyrightBox">
+          <h2 class="CopyrightFooter">Copyright</h2>
+          <p class="CopyrightContent">"© [2025] [Investeringskompassen]. Allt innehåll på denna webbplats är skyddat av upphovsrätt.
+            Innehåll får ej kopieras eller återpubliceras utan tillstånd.
+            Webbplatsen innehåller data och citat från externa källor, vilka alltid anges. Vi tar inget ansvar för korrektheten i extern information.
+            Innehållet är endast för informationssyfte och ska ej betraktas som investeringsrådgivning."</p>
+        </div>
+        <div class="LinksBox">
+          <ul class="CopyrightLinks">
+            <p class="Contact">Kontakt</p>
+            <li><a href="https://www.linkedin.com/in/jonathan-windell-418a55232/">Linkedin</a></li>
+            <li><a href="https://github.com/JonathanWindell">Github</a></li>
+            <li><a href="mailto:windelljonathan04@gmail.com?subject=Kontakt från Investeringskompassen&body=Hej Jonathan,%0D%0A%0D%0AJag kontaktar dig angående...">windelljonathan04@gmail.com</a></li>
+          </ul>
+        </div>
       </div>
     </div>
   </section>
 
-  <!--Contact Form-->
-  <section>
-    <div class="background" id="contact-form">
-      <div class="container">
-        <div class="screen">
-          <div class="screen-header">
-            <div class="screen-header-left">
-              <div class="screen-header-button close"></div>
-              <div class="screen-header-button maximize"></div>
-              <div class="screen-header-button minimize"></div>
-            </div>
-            <div class="screen-header-right">
-              <div class="screen-header-ellipsis"></div>
-              <div class="screen-header-ellipsis"></div>
-              <div class="screen-header-ellipsis"></div>
-            </div>
-          </div>
-          <div class="screen-body">
-            <div class="screen-body-item left">
-              <div class="app-title">
-                <span>KONTAKTA</span>
-                <span>MIG</span>
-              </div>
-              <div class="app-contact">KONTAKT : +46 163 43 03</div>
-            </div>
-            <div class="screen-body-item">
-              <div class="app-form">
-                <div class="app-form-group">
-                  <input class="app-form-control" placeholder="NAMN">
-                </div>
-                <div class="app-form-group">
-                  <input class="app-form-control" placeholder="EMAIL">
-                </div>
-                <div class="app-form-group">
-                  <input class="app-form-control" placeholder="KONTAKT NR">
-                </div>
-                <div class="app-form-group message">
-                  <input class="app-form-control" placeholder="MEDDELANDE">
-                </div>
-                <div class="app-form-group buttons">
-                  <button class="app-form-button">AVBRYT</button>
-                  <button class="app-form-button">SKICKA</button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="credits">
-          </a>
-        </div>
-      </div>
-    </div>
-
-
-  </section>
 
 
 </main>
 
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 <script src="js/script.js"></script>
 </body>
 </html>
