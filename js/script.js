@@ -13,12 +13,22 @@ window.onload = function () {
 
   // Hämta senaste inlägget
   function loadLatestPost() {
-    fetch("Posts/TestPost.md")
-      .then((response) => response.text())
-      .then((markdown) => {
-        document.getElementById("latestPostContent").innerHTML = marked.parse(markdown);
+    fetch("posts.json")
+      .then((response) => response.json())
+      .then((posts) => {
+        if (posts.length === 0) return;
+
+        const latestPost = posts[0]; // Första inlägget i listan är det senaste
+        document.getElementById("latestPostTitle").textContent = latestPost.title; // Uppdatera titeln
+
+        fetch(latestPost.file)
+          .then((response) => response.text())
+          .then((markdown) => {
+            document.getElementById("latestPostContent").innerHTML = marked.parse(markdown);
+          })
+          .catch((error) => console.error("Error loading post:", error));
       })
-      .catch((error) => console.error("Error loading post:", error));
+      .catch((error) => console.error("Error loading posts.json:", error));
   }
 
   loadLatestPost();
