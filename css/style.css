@@ -67,6 +67,12 @@ button {
   font-weight: 500;
 }
 
+.ShowingRates {
+  position: absolute;
+  top: 0;
+  right: 20px;
+}
+
 /* Navbar */
 .navbar {
   position: fixed;
