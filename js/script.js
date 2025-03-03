@@ -29,10 +29,8 @@ window.onload = function () {
   function displayExchangeRates(rates) {
     const ratesDiv = document.querySelector(".rates");
     ratesDiv.innerHTML = `
-      <p>1 EUR = ${rates.USD} USD</p>
-      <p>1 EUR = ${rates.SEK} SEK</p>
-      <p>1 EUR = ${rates.NOK} NOK</p>
-      <p>1 EUR = ${rates.DKK} DKK</p>
+      <p>1 EUR: ${rates.USD} USD</p>
+      <p>1 EUR: ${rates.SEK} SEK</p>
     `;
   }
 
@@ -45,8 +43,8 @@ window.onload = function () {
             EUR: data.conversion_rates.EUR,
             USD: data.conversion_rates.USD,
             SEK: data.conversion_rates.SEK,
-            NOK: data.conversion_rates.NOK,
-            DKK: data.conversion_rates.DKK,
+            //NOK: data.conversion_rates.NOK,
+            //DKK: data.conversion_rates.DKK,
           };
 
           localStorage.setItem(

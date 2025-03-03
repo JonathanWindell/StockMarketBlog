@@ -1,38 +1,82 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="sv">
 <head>
   <meta charset="UTF-8">
-  <title>Title</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>InvesteringsKompassen</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 <main>
-  <!--Header -->
-  <section>
-    <header class="header-container">
-      <div class="header">
-        <h1>Investeringskompassen</h1>
-        <hr class="line">
+
+  <!--Header and Time-->
+  <header class="header-container">
+    <div class="header">
+      <section class="ShowingTime">
+        <div class="showingTime"></div>
+        <p id="dateTime"></p>
+      </section>
+      <div class="header-content">
+        <h1><span class ="dot"></span>Investeringskompassen</h1>
       </div>
-    </header>
-  </section>
+      <hr class="line">
+      <section class="ShowingRates">
+        <div class="rates"></div>
 
+      </section>
+    </div>
+  </header>
 
+  <nav class="navbar">
+    <ul class="nav-links">
+      <li><a href="index.html">Hem</a></li>
+      <li><a href="OldArticles.html">Artiklar</a></li>
+      <li><a href="#FooterContainer">Kontakt</a></li>
+    </ul>
+  </nav>
 
-  <!--Menu-->
+  <!--Textarea-->
+  <div class="content-wrapper">
+    <section>
+      <div class="TextContainer">
+        <div class="TextArea">
+          <h2>Latest Post</h2>
+          <div id="latestPostContent">
+            <!-- Content -->
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
   <section>
-    <nav class = "navbar">
-      <ul class = "nav-links">
-        <li><a href = "index.html">Hem</a></li>
-        <li><a href = "OldArticles.html">Artiklar</a></li>
-        <li><a href = "contact-form">Kontakt</a></li>
-        <li><a href = "https://github.com/JonathanWindell">Github</a></li>
-        <li><a href = "https://www.linkedin.com/in/jonathan-windell-418a55232/">Linkedin</a></li>
-      </ul>
-    </nav>
+    <div class="FooterContainer">
+      <div class="Footer"></div>
+      <div class="ContentWrapper">
+        <div class="CopyrightBox">
+          <h2 class="CopyrightFooter">Copyright</h2>
+          <p class="CopyrightContent">"© [2025] [Investeringskompassen]. Allt innehåll på denna webbplats är skyddat av upphovsrätt.
+            Innehåll får ej kopieras eller återpubliceras utan tillstånd.
+            Webbplatsen innehåller data och citat från externa källor, vilka alltid anges. Vi tar inget ansvar för korrektheten i extern information.
+            Innehållet är endast för informationssyfte och ska ej betraktas som investeringsrådgivning."</p>
+        </div>
+        <div class="LinksBox">
+          <ul class="CopyrightLinks">
+            <p class="Contact">Kontakt</p>
+            <li><a href="https://www.linkedin.com/in/jonathan-windell-418a55232/">Linkedin</a></li>
+            <li><a href="https://github.com/JonathanWindell">Github</a></li>
+            <li><a href="mailto:windelljonathan04@gmail.com?subject=Kontakt från Investeringskompassen&body=Hej Jonathan,%0D%0A%0D%0AJag kontaktar dig angående...">windelljonathan04@gmail.com</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
   </section>
+
+
+
 </main>
 
-
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<script src="js/script.js"></script>
 </body>
 </html>

@@ -6,6 +6,7 @@ html {
 body {
   width: 100%;
   padding-top: 140px;
+  background-color: #f5f5f5;
 }
 
 button {
@@ -36,18 +37,21 @@ button {
   position: relative;
 }
 
-.bull-logo {
-  position: absolute;
-  left: 7px;
-  top: 50%;
-  transform: translateY(-50%);
-}
-
 .header h1{
   font-family: 'Montserrat', sans-serif;
   font-weight: 300;
   margin: 0;
   padding-top: 40px;
+}
+
+.dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #000;
+  margin-right: 10px;
+  vertical-align: middle;
 }
 
 .line {
@@ -71,6 +75,9 @@ button {
   position: absolute;
   top: 0;
   right: 20px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 13px;
 }
 
 /* Navbar */
@@ -79,9 +86,9 @@ button {
   top: 90px;
   left: 0;
   width: 100%;
-  background-color: white;
+  background-color: #f5f5f5;
   padding: 10px 0;
-  z-index: 999;
+  z-index: 1000;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
@@ -135,7 +142,7 @@ section {
 }
 
 .TextArea {
-  border: 1px solid black;
+  border: 1px solid rgba(0, 0, 0, 0.2);
   font-family: 'Montserrat', sans-serif;
   font-weight: 700;
   font-size: 14px;
