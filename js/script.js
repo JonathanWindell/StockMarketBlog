@@ -13,7 +13,7 @@ window.onload = function () {
 
   // Hämta senaste inlägget
   function loadLatestPost() {
-    fetch("posts.json")
+    fetch("Posts.json")
       .then((response) => response.json())
       .then((posts) => {
         if (posts.length === 0) return;
