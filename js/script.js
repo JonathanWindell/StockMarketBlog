@@ -11,27 +11,89 @@ window.onload = function () {
   updateDateTime();
   setInterval(updateDateTime, 1000);
 
-  // Hämta senaste inlägget
+  // Funktion för att ladda och visa senaste inlägget på index.html
   function loadLatestPost() {
     fetch("Posts.json")
       .then((response) => response.json())
       .then((posts) => {
         if (posts.length === 0) return;
 
-        const latestPost = posts[0]; // Första inlägget i listan är det senaste
-        document.getElementById("latestPostTitle").textContent = latestPost.title; // Uppdatera titeln
+        // Sortera inläggen så att det senaste är först
+        posts.sort((a, b) => new Date(b.date) - new Date(a.date));
+
+        const latestPost = posts[0]; // Det senaste inlägget är nu först
+        document.getElementById("latestPostTitle").textContent = latestPost.title;
 
         fetch(latestPost.file)
           .then((response) => response.text())
           .then((markdown) => {
             document.getElementById("latestPostContent").innerHTML = marked.parse(markdown);
           })
-          .catch((error) => console.error("Error loading post:", error));
+          .catch((error) => console.error("Error loading latest post:", error));
       })
       .catch((error) => console.error("Error loading posts.json:", error));
   }
 
-  loadLatestPost();
+// Funktion för att ladda och visa äldre inlägg på older_posts.html
+  function loadOlderPosts() {
+    fetch("Posts.json")
+      .then((response) => response.json())
+      .then((posts) => {
+        if (posts.length === 0) return;
+
+        // Sortera inläggen så att det senaste är först
+        posts.sort((a, b) => new Date(b.date) - new Date(a.date));
+
+        const olderPostsList = document.getElementById("olderPostsList");
+        olderPostsList.innerHTML = ""; // Rensa tidigare listade inlägg
+
+        // Loop för att skapa rubriker för äldre inlägg
+        for (let i = 1; i < posts.length; i++) { // Börja från index 1 för att hoppa över det senaste inlägget
+          const post = posts[i];
+
+          // Skapa en listpunkt med en knapp
+          const listItem = document.createElement("li");
+          const titleButton = document.createElement("button");
+          titleButton.textContent = post.title;
+          titleButton.classList.add("dropdown-btn");
+
+          // Skapa en div för innehållet (gömt från början)
+          const contentDiv = document.createElement("div");
+          contentDiv.classList.add("dropdown-content");
+          contentDiv.style.display = "none";
+
+          // Klick-funktion för att ladda och visa innehåll
+          titleButton.addEventListener("click", () => {
+            if (contentDiv.innerHTML === "") { // Om innehållet inte redan är laddat
+              fetch(post.file)
+                .then((response) => response.text())
+                .then((markdown) => {
+                  contentDiv.innerHTML = marked.parse(markdown);
+                  contentDiv.style.display = "block"; // Visa innehållet
+                })
+                .catch((error) => console.error("Error loading post:", error));
+            } else {
+              // Växla visning av innehåll
+              contentDiv.style.display = contentDiv.style.display === "none" ? "block" : "none";
+            }
+          });
+
+          listItem.appendChild(titleButton);
+          listItem.appendChild(contentDiv);
+          olderPostsList.appendChild(listItem);
+        }
+      })
+      .catch((error) => console.error("Error loading posts.json:", error));
+  }
+
+// Anropa funktionerna på respektive sidor
+  if (document.getElementById("latestPostTitle")) {
+    loadLatestPost(); // Ladda senaste inlägg för index.html
+  }
+
+  if (document.getElementById("olderPostsList")) {
+    loadOlderPosts(); // Ladda äldre inlägg för older_posts.html
+  }
 
   // API-för valutakurser
   const API_URL = "https://v6.exchangerate-api.com/v6/9c6c15bcbf74d1b433634b86/latest/EUR";
@@ -91,7 +153,6 @@ window.onload = function () {
   getExchangeRates();
 };
 
-//Fixa artikelsidan med gamla. När ny post är uppladda så ska de bytas ut.
 
 
 

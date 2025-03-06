@@ -1,4 +1,4 @@
 [
-  { "title": "Min första bloggpost", "file": "Posts/TestPost2.md", "date": "2025-03-03" },
-  { "title": "Min andra bloggpost", "file": "Posts/TestPost.md", "date": "2025-03-01" }
+  { "title": "Första artikeln", "file":  "Posts/TestPost.md", "date": "2025-03-01"},
+  { "title": "Senaste artikeln", "file": "Posts/TestPost2.md", "date": "2025-03-08" }
 ]
