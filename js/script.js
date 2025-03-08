@@ -1,5 +1,5 @@
 window.onload = function () {
-  // Uppdatera datum och tid
+  // Update date and time
   function updateDateTime() {
     var dt = new Date();
     var options = { weekday: "long", day: "numeric", month: "long" };
@@ -11,14 +11,14 @@ window.onload = function () {
   updateDateTime();
   setInterval(updateDateTime, 1000);
 
-  // Funktion för att ladda och visa senaste inlägget på index.html
+  //Function for loading and showing latest post index.html
   function loadLatestPost() {
     fetch("Posts.json")
       .then((response) => response.json())
       .then((posts) => {
         if (posts.length === 0) return;
 
-        // Sortera inläggen så att det senaste är först
+        //Sort posts so latest is first
         posts.sort((a, b) => new Date(b.date) - new Date(a.date));
 
         const latestPost = posts[0]; // Det senaste inlägget är nu först
@@ -34,46 +34,46 @@ window.onload = function () {
       .catch((error) => console.error("Error loading posts.json:", error));
   }
 
-// Funktion för att ladda och visa äldre inlägg på older_posts.html
+//Function for loading and showing older posts
   function loadOlderPosts() {
     fetch("Posts.json")
       .then((response) => response.json())
       .then((posts) => {
         if (posts.length === 0) return;
 
-        // Sortera inläggen så att det senaste är först
+        //Sort posts based on which is first
         posts.sort((a, b) => new Date(b.date) - new Date(a.date));
 
         const olderPostsList = document.getElementById("olderPostsList");
-        olderPostsList.innerHTML = ""; // Rensa tidigare listade inlägg
+        olderPostsList.innerHTML = ""; //Clear older posts
 
-        // Loop för att skapa rubriker för äldre inlägg
-        for (let i = 1; i < posts.length; i++) { // Börja från index 1 för att hoppa över det senaste inlägget
+        //Loop to create headline
+        for (let i = 1; i < posts.length; i++) { //Start from index 1 and jump over latest post
           const post = posts[i];
 
-          // Skapa en listpunkt med en knapp
+          //Create a list
           const listItem = document.createElement("li");
           const titleButton = document.createElement("button");
           titleButton.textContent = post.title;
           titleButton.classList.add("dropdown-btn");
 
-          // Skapa en div för innehållet (gömt från början)
+          //Create a div för context. Hidden from start
           const contentDiv = document.createElement("div");
           contentDiv.classList.add("dropdown-content");
           contentDiv.style.display = "none";
 
-          // Klick-funktion för att ladda och visa innehåll
+          //Click function to load page
           titleButton.addEventListener("click", () => {
-            if (contentDiv.innerHTML === "") { // Om innehållet inte redan är laddat
+            if (contentDiv.innerHTML === "") { //If context already loaded
               fetch(post.file)
                 .then((response) => response.text())
                 .then((markdown) => {
                   contentDiv.innerHTML = marked.parse(markdown);
-                  contentDiv.style.display = "block"; // Visa innehållet
+                  contentDiv.style.display = "block"; //Show context
                 })
                 .catch((error) => console.error("Error loading post:", error));
             } else {
-              // Växla visning av innehåll
+              //Change context
               contentDiv.style.display = contentDiv.style.display === "none" ? "block" : "none";
             }
           });
@@ -86,16 +86,16 @@ window.onload = function () {
       .catch((error) => console.error("Error loading posts.json:", error));
   }
 
-// Anropa funktionerna på respektive sidor
+//Call functions on both html sides
   if (document.getElementById("latestPostTitle")) {
     loadLatestPost(); // Ladda senaste inlägg för index.html
   }
 
   if (document.getElementById("olderPostsList")) {
-    loadOlderPosts(); // Ladda äldre inlägg för older_posts.html
+    loadOlderPosts(); //Load older posts in older_post.html
   }
 
-  // API-för valutakurser
+  // API for currency exchange
   const API_URL = "https://v6.exchangerate-api.com/v6/9c6c15bcbf74d1b433634b86/latest/EUR";
 
   function displayExchangeRates(rates) {
@@ -115,8 +115,6 @@ window.onload = function () {
             EUR: data.conversion_rates.EUR,
             USD: data.conversion_rates.USD,
             SEK: data.conversion_rates.SEK,
-            //NOK: data.conversion_rates.NOK,
-            //DKK: data.conversion_rates.DKK,
           };
 
           localStorage.setItem(
